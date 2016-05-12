@@ -1,0 +1,10 @@
+{
+  "displayName" : "Scheduled Tasks",
+  "author" : ["Valentin DEVILLE", "Guillaume PRIOU"],
+  "contributor" : [],
+  "supportedAgent" : ["Windows"],
+  "description" : {
+    "fr" : "Remonte tâches planifiée",
+    "en" : "Retrieve scheduled tasks"
+  }
+}
