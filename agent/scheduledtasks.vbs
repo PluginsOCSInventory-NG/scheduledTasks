@@ -34,7 +34,7 @@ ForReading = 1
 ForWriting = 2
 
 Dim args, fso, fsrce, fdest
-Set coucou   = WScript.CreateObject("Scripting.FileSystemObject")
+Set fso   = WScript.CreateObject("Scripting.FileSystemObject")
 Set args  = Wscript.Arguments
 
 Pipe=false
