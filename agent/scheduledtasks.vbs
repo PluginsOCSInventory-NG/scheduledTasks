@@ -34,7 +34,7 @@ ForReading = 1
 ForWriting = 2
 
 Dim args, fso, fsrce, fdest
-Set coucou   = WScript.CreateObject("Scripting.FileSystemObject")
+Set fso   = WScript.CreateObject("Scripting.FileSystemObject")
 Set args  = Wscript.Arguments
 
 Pipe=false
@@ -81,27 +81,27 @@ If Not fCsv.AtEndOfStream Then fCsv.ReadLine ' read line by line
 
 While Not fCsv.AtEndOfStream
   tb = split(fCsv.ReadLine, """,""")
-	Wscript.echo "<SCHEDULEDTASK>"
-	Wscript.echo "<NAME>" & tb(1) & "</NAME>"
-	Wscript.echo "<NEXT_EXEC_HOUR>" & tb(2) & "</NEXT_EXEC_HOUR>"
-	Wscript.echo "<STATE>" & tb(3) & "</STATE>"
-	Wscript.echo "<LAST_EXEC_HOUR>" & tb(4) & "</LAST_EXEC_HOUR>"
-	Wscript.echo "<LAST_RESULT>" & tb(5) & "</LAST_RESULT>"
-	Wscript.echo "<CREATOR>" & tb(6) & "</CREATOR>"
-	Wscript.echo "<PLANNING>" & tb(7) & "</PLANNING>"
-	Wscript.echo "<TASK_TO_EXECUTE>" & tb(8) & "</TASK_TO_EXECUTE>"
-	Wscript.echo "<START_IN>" & tb(9) & "</START_IN>"
-	Wscript.echo "<COMMENT>" & tb(10) & "</COMMENT>"
-	Wscript.echo "<TASK_STATUS>" & tb(11) & "</TASK_STATUS>"
-	Wscript.echo "<TYPE>" & tb(12) & "</TYPE>"
-	Wscript.echo "<BEGIN_HOUR>" & tb(13) & "</BEGIN_HOUR>"
-	Wscript.echo "<BEGIN_DATE>" & tb(14) & "</BEGIN_DATE>"
-	Wscript.echo "<END_DATE>" & tb(15) & "</END_DATE>"
-	Wscript.echo "<DAY>" & tb(16) & "</DAY>"
-	Wscript.echo "<MONTH>" & tb(17) & "</MONTH>"
-	Wscript.echo "<EXECUTE_AS>" & tb(18) & "</EXECUTE_AS>"
-	Wscript.echo "<DEL_TASK>" & tb(19) & "</DEL_TASK>"
-	Wscript.echo "<STOP_TASK_AFTER>" & tb(20) & "</STOP_TASK_AFTER>"
-	Wscript.echo "</SCHEDULEDTASK>"
-
+	Wscript.echo _
+		"<SCHEDULEDTASK>" & VbCrLf &_
+		"<NAME>" & tb(1) & "</NAME>" & VbCrLf &_
+		"<NEXT_EXEC_HOUR>" & tb(2) & "</NEXT_EXEC_HOUR>" & VbCrLf &_
+		"<STATE>" & tb(3) & "</STATE>" & VbCrLf &_
+		"<LAST_EXEC_HOUR>" & tb(4) & "</LAST_EXEC_HOUR>" & VbCrLf &_
+		"<LAST_RESULT>" & tb(5) & "</LAST_RESULT>" & VbCrLf &_
+		"<CREATOR>" & tb(6) & "</CREATOR>" & VbCrLf &_
+		"<PLANNING>" & tb(7) & "</PLANNING>" & VbCrLf &_
+		"<TASK_TO_EXECUTE>" & tb(8) & "</TASK_TO_EXECUTE>" & VbCrLf &_
+		"<START_IN>" & tb(9) & "</START_IN>" & VbCrLf &_
+		"<COMMENT>" & tb(10) & "</COMMENT>" & VbCrLf &_
+		"<TASK_STATUS>" & tb(11) & "</TASK_STATUS>" & VbCrLf &_
+		"<TYPE>" & tb(12) & "</TYPE>" & VbCrLf &_
+		"<BEGIN_HOUR>" & tb(13) & "</BEGIN_HOUR>" & VbCrLf &_
+		"<BEGIN_DATE>" & tb(14) & "</BEGIN_DATE>" & VbCrLf &_
+		"<END_DATE>" & tb(15) & "</END_DATE>" & VbCrLf &_
+		"<DAY>" & tb(16) & "</DAY>" & VbCrLf &_
+		"<MONTH>" & tb(17) & "</MONTH>" & VbCrLf &_
+		"<EXECUTE_AS>" & tb(18) & "</EXECUTE_AS>" & VbCrLf &_
+		"<DEL_TASK>" & tb(19) & "</DEL_TASK>" & VbCrLf &_
+		"<STOP_TASK_AFTER>" & tb(20) & "</STOP_TASK_AFTER>" & VbCrLf &_
+		"</SCHEDULEDTASK>"
 Wend
