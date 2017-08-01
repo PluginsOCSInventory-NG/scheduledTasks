@@ -8,7 +8,7 @@
 
 Dim Message
 Set Message = CreateObject("WsCript.Shell")
-Message.run "command  /c SCHTASKS /Query /FO CSV /NH /V > %TEMP%\LISTTASK.txt",0,true
+	Message.run "CMD /c SCHTASKS /Query /FO CSV /NH /V > %TEMP%\LISTTASK.txt",0,true
 
 'Function to convert OEM to ANSI
 Dim oem
