@@ -34,7 +34,7 @@ $DATA_MAP{scheduledtasks} = {
         		MONTH => {},
         		EXECUTEAS => {},
         		DELTASK => {},
-        		STOPTASKAFTER => {},
-        	}
+        		STOPTASKAFTER => {}
+}
 };
 1;
