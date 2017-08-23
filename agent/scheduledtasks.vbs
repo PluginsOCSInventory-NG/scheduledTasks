@@ -1,14 +1,40 @@
-'===============================================
-' Guillaume PRIOU
-' 24/01/2012
-' Retrieve scheduled tasks and parse in XML
-' Created as a plugin for OCS Inventory NG 2.0
-'===============================================
-'Function to list scheduled tasks in a temporary txt file
+'----------------------------------------------------------
+' Plugin for OCS Inventory NG 2.x
+' Script :		Retrieve scheduled tasks and parse in XML
+' Version :		1.10
+' Date :		23/08/2017
+' Author :		Guillaume PRIOU
+' Contributor :	Stéphane PAUTREL (acb78.com)
+'----------------------------------------------------------
+' OS checked [X] on	32b	64b	(Professionnal edition)
+'	Windows XP		[X]	[ ]
+'	Windows Vista	[X]	[X]
+'	Windows 7		[X]	[X]
+'	Windows 8.1		[X]	[X]	
+'	Windows 10		[X]	[X]
+' ---------------------------------------------------------
+' NOTE : No checked on Windows 8
+' Function to list scheduled tasks in a temporary txt file
+' ---------------------------------------------------------
+On Error Resume Next
 
 Dim Message
 Set Message = CreateObject("WsCript.Shell")
-	Message.run "CMD /c SCHTASKS /Query /FO CSV /NH /V > %TEMP%\LISTTASK.txt",0,true
+
+
+Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+
+For Each objOperatingSystem in colOperatingSystems
+	If InStr(objOperatingSystem.version,"6.0.")<>0 Or InStr(objOperatingSystem.version,"6.1.")<>0 Then
+		Message.run "CMD /c SCHTASKS /Query /FO CSV /V > %TEMP%\LISTTASK.txt",0,true
+	Else
+		Message.run "CMD /c SCHTASKS /Query /FO CSV /NH /V > %TEMP%\LISTTASK.txt",0,true
+	End If
+Next
+
+
+Message.run "CMD /c SCHTASKS /Query /FO CSV /V > %TEMP%\LISTTASK.txt",0,true
 
 'Function to convert OEM to ANSI
 Dim oem
@@ -49,9 +75,15 @@ While not fsrce.AtEndOfStream
 		oldc=asc(mid(oldline,i,1))
 		newc=oem(oldc)
 		newline=newline & chr(hextobyte(newc))
-		Next
-	fdest.WriteLine newline
-	Wend
+	Next
+
+	' Détection entête de colonne (spécifique à Vista et W7)
+	If InStr(newline, "Nom de la") <> 0 Then
+		' Pas d'écriture, passage à la ligne suivante
+	Else
+		fdest.WriteLine newline
+	End If
+Wend
 fdest.close
 fsrce.close
 
@@ -82,7 +114,7 @@ If Not fCsv.AtEndOfStream Then fCsv.ReadLine ' read line by line
 While Not fCsv.AtEndOfStream
   tb = split(fCsv.ReadLine, """,""")
 	Wscript.echo _
-		"<SCHEDULEDTASK>" & VbCrLf &_
+		"<SCHEDULEDTASKS>" & VbCrLf &_
 		"<NAME>" & tb(1) & "</NAME>" & VbCrLf &_
 		"<NEXT_EXEC_HOUR>" & tb(2) & "</NEXT_EXEC_HOUR>" & VbCrLf &_
 		"<STATE>" & tb(3) & "</STATE>" & VbCrLf &_
@@ -103,5 +135,5 @@ While Not fCsv.AtEndOfStream
 		"<EXECUTE_AS>" & tb(18) & "</EXECUTE_AS>" & VbCrLf &_
 		"<DEL_TASK>" & tb(19) & "</DEL_TASK>" & VbCrLf &_
 		"<STOP_TASK_AFTER>" & tb(20) & "</STOP_TASK_AFTER>" & VbCrLf &_
-		"</SCHEDULEDTASK>"
+		"</SCHEDULEDTASKS>"
 Wend
