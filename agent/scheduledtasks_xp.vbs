@@ -7,11 +7,11 @@
 ' Contributor :	Stéphane PAUTREL (acb78.com)
 '----------------------------------------------------------
 ' OS checked [X] on	32b	64b	(Professionnal edition)
-'	Windows XP		[X]	[ ]
+'	Windows XP	[X]	[ ]
 '	Windows Vista	[N]	[N]
-'	Windows 7		[N]	[N]
-'	Windows 8.1		[N]	[N]	
-'	Windows 10		[N]	[N]
+'	Windows 7	[N]	[N]
+'	Windows 8.1	[N]	[N]	
+'	Windows 10	[N]	[N]
 ' ---------------------------------------------------------
 ' NOTE : No checked on Windows 8
 ' Function to list scheduled tasks in a temporary txt file
