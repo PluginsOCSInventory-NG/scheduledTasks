@@ -34,9 +34,6 @@ For Each objOperatingSystem in colOperatingSystems
 	End If
 Next
 
-
-Message.run "CMD /c SCHTASKS /Query /FO CSV /V > %TEMP%\LISTTASK.txt",0,true
-
 'Function to convert OEM to ANSI
 Dim oem
 oem=array( _
