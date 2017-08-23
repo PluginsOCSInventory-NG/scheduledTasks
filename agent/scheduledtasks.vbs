@@ -25,6 +25,7 @@ Set Message = CreateObject("WsCript.Shell")
 Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
 
+' Méthode différente pour Windows Vista et W7 (merci Microsoft !)
 For Each objOperatingSystem in colOperatingSystems
 	If InStr(objOperatingSystem.version,"6.0.")<>0 Or InStr(objOperatingSystem.version,"6.1.")<>0 Then
 		Message.run "CMD /c SCHTASKS /Query /FO CSV /V > %TEMP%\LISTTASK.txt",0,true
