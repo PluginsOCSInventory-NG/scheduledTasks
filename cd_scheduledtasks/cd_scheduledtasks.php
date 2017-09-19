@@ -67,3 +67,4 @@ else{
         tab_req($list_fields,$default_fields,$list_col_cant_del,$sql['SQL'],$tab_options);
         ob_start();
     }
+?>

@@ -1,7 +1,7 @@
 {
   "displayName" : "Scheduled Tasks",
   "author" : ["Valentin DEVILLE", "Guillaume PRIOU"],
-  "contributor" : [],
+  "contributor" : ["Stephane PAUTREL"],
   "supportedAgent" : ["Windows"],
   "description" : {
     "fr" : "Remonte tâches planifiées",

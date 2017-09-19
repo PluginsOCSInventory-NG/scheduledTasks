@@ -1,20 +1,17 @@
 '----------------------------------------------------------
 ' Plugin for OCS Inventory NG 2.x
 ' Script :		Retrieve scheduled tasks and parse in XML
-' Version :		2.00
+' Version :		1.10
 ' Date :		23/08/2017
 ' Author :		Guillaume PRIOU
 ' Contributor :	Stéphane PAUTREL (acb78.com)
 '----------------------------------------------------------
 ' OS checked [X] on	32b	64b	(Professionnal edition)
-'	Windows XP	[N]
-'	Windows Vista	[X]	[X]
-'	Windows 7	[X]	[X]
-'	Windows 8.1	[X]	[X]	
-'	Windows 10	[X]	[X]
-'	Windows 2k8R2		[X]
-'	Windows 2k12R2		[X]
-'	Windows 2k16		[X]
+'	Windows XP	[X]	[ ]
+'	Windows Vista	[N]	[N]
+'	Windows 7	[N]	[N]
+'	Windows 8.1	[N]	[N]	
+'	Windows 10	[N]	[N]
 ' ---------------------------------------------------------
 ' NOTE : No checked on Windows 8
 ' Function to list scheduled tasks in a temporary txt file
@@ -119,22 +116,22 @@ While Not fCsv.AtEndOfStream
 		"<NAME>" & tb(1) & "</NAME>" & VbCrLf &_
 		"<NEXT_EXEC_HOUR>" & tb(2) & "</NEXT_EXEC_HOUR>" & VbCrLf &_
 		"<STATE>" & tb(3) & "</STATE>" & VbCrLf &_
-		"<LAST_EXEC_HOUR>" & tb(5) & "</LAST_EXEC_HOUR>" & VbCrLf &_
-		"<LAST_RESULT>" & tb(6) & "</LAST_RESULT>" & VbCrLf &_
-		"<CREATOR>" & tb(7) & "</CREATOR>" & VbCrLf &_
-		"<PLANNING>" & tb(17) & "</PLANNING>" & VbCrLf &_
+		"<LAST_EXEC_HOUR>" & tb(4) & "</LAST_EXEC_HOUR>" & VbCrLf &_
+		"<LAST_RESULT>" & tb(5) & "</LAST_RESULT>" & VbCrLf &_
+		"<CREATOR>" & tb(6) & "</CREATOR>" & VbCrLf &_
+		"<PLANNING>" & tb(7) & "</PLANNING>" & VbCrLf &_
 		"<TASK_TO_EXECUTE>" & tb(8) & "</TASK_TO_EXECUTE>" & VbCrLf &_
 		"<START_IN>" & tb(9) & "</START_IN>" & VbCrLf &_
 		"<COMMENT>" & tb(10) & "</COMMENT>" & VbCrLf &_
 		"<TASK_STATUS>" & tb(11) & "</TASK_STATUS>" & VbCrLf &_
-		"<TYPE>" & tb(18) & "</TYPE>" & VbCrLf &_
-		"<BEGIN_HOUR>" & tb(19) & "</BEGIN_HOUR>" & VbCrLf &_
-		"<BEGIN_DATE>" & tb(20) & "</BEGIN_DATE>" & VbCrLf &_
-		"<END_DATE>" & tb(21) & "</END_DATE>" & VbCrLf &_
-		"<DAY>" & tb(22) & "</DAY>" & VbCrLf &_
-		"<MONTH>" & tb(23) & "</MONTH>" & VbCrLf &_
-		"<EXECUTE_AS>" & tb(14) & "</EXECUTE_AS>" & VbCrLf &_
-		"<DEL_TASK>" & tb(15) & "</DEL_TASK>" & VbCrLf &_
-		"<STOP_TASK_AFTER>" & tb(16) & "</STOP_TASK_AFTER>" & VbCrLf &_
+		"<TYPE>" & tb(12) & "</TYPE>" & VbCrLf &_
+		"<BEGIN_HOUR>" & tb(13) & "</BEGIN_HOUR>" & VbCrLf &_
+		"<BEGIN_DATE>" & tb(14) & "</BEGIN_DATE>" & VbCrLf &_
+		"<END_DATE>" & tb(15) & "</END_DATE>" & VbCrLf &_
+		"<DAY>" & tb(16) & "</DAY>" & VbCrLf &_
+		"<MONTH>" & tb(17) & "</MONTH>" & VbCrLf &_
+		"<EXECUTE_AS>" & tb(18) & "</EXECUTE_AS>" & VbCrLf &_
+		"<DEL_TASK>" & tb(19) & "</DEL_TASK>" & VbCrLf &_
+		"<STOP_TASK_AFTER>" & tb(20) & "</STOP_TASK_AFTER>" & VbCrLf &_
 		"</SCHEDULEDTASKS>"
 Wend
