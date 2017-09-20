@@ -2,7 +2,7 @@
 function plugin_version_scheduledtasks()
 {
 return array('name' => 'scheduledtasks',
-'version' => '1.0',
+'version' => '2.0',
 'author'=> 'Valentin DEVILLE, Guillaume PRIOU',
 'license' => 'GPLv2',
 'verMinOcs' => '2.2');
