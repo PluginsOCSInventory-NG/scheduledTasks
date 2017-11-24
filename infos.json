@@ -4,7 +4,7 @@
   "contributor" : ["Stephane PAUTREL"],
   "supportedAgent" : ["Windows"],
   "description" : {
-    "fr" : "Remonte tâches planifiées",
+    "fr" : "Remonte les tâches planifiées",
     "en" : "Retrieve scheduled tasks"
   }
 }
