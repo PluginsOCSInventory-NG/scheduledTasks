@@ -38,7 +38,7 @@ $object -> sql_query("
                     `DELTASK` VARCHAR(255) NOT NULL,
                     `STOPTASKAFTER` VARCHAR(255) NOT NULL,
                     PRIMARY KEY (`ID`,`HARDWARE_ID`)
-                      ) ENGINE=INNODB;");
+                    ) ENGINE=INNODB;");
 
 }
 
@@ -46,7 +46,7 @@ function plugin_delete_scheduledtasks()
 {
 $object = new plugins;
 $object -> del_cd_entry("scheduledtasks");
-$object -> sql_query("DROP TABLE `scheduledtasks`");
+$object -> sql_query("DROP TABLE `scheduledtasks`;");
 
 }
 
